@@ -27,7 +27,7 @@ while guess_counter > 0 and victory_bool == False:
 # checking if the guess is the correct word or a letter in the target word.
     if len(current_guess) > 1 and current_guess != target_word:
         guess_counter = guess_counter - 1
-        print("That was incorrect! Try again")
+        print("That was incorrect!")
     elif len(current_guess) > 1 and current_guess == target_word:
         victory_bool = True
     elif len(current_guess) == 1 and current_guess in target_word_letters:
