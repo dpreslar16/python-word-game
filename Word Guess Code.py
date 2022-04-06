@@ -1,17 +1,29 @@
 # Word Game
 
+import random
+
 # Dictionary for words; starting out with just one word:
-target_word = 'verisimilitude'
+#target_word = 'verisimilitude'
+
+f = open('english-words-unabridged.txt')
+sample = f.readlines()
+
+
+f.close()
+target_word = random.choice(sample).lower()
 
 # Tuple of guess word, guess list (starting with underscores), initialize guess counter
-target_word_letters = tuple(list(target_word))
-#print(target_word_letters)
-#print(type(target_word_letters))
+temp_list = list(target_word)
+temp_list.remove('\n')
+
+target_word_letters = tuple(temp_list)
+target_word = ''.join(temp_list)
+
 
 guess_list = []
 for i in target_word_letters:
     guess_list.append("_")
-#print(guess_list)
+
 
 guess_counter = 7       # could set up as an input by user
 
@@ -48,7 +60,7 @@ while guess_counter > 0 and victory_bool == False:
 if victory_bool == True:
     print("Congratulations, you win!")
 elif victory_bool == False:
-    print("FAIL!")
+    print("FAIL! The correct answer was   " + target_word)
 else:
     print("This should not run- line 49")
 
